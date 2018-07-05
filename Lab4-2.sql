@@ -17,9 +17,9 @@ address_ ID FK-char
 phone char
 email char */
 DROP TABLE Person;
-go
+GO
 CREATE TABLE Person (
-    person_ID int not null primary key,
+    PersonID int not null primary key,
     Name varchar(255),
     Address varchar(255),
     City varchar(50),
@@ -39,10 +39,10 @@ reorder_pt Int
 reorder_qty Int
 uomeasure Int*/
 DROP TABLE Product;
-go
+GO
 CREATE TABLE Product (
-    product_ID int not null primary key,
-    Category_ID int not null,
+    ProductID int not null primary key,
+    CategoryID int not null,
     Name varchar(255),
     Description varchar(50),
 	Price varchar (30),
@@ -59,14 +59,14 @@ email char
 addressID FK-char
 manager char*/
 DROP TABLE Store;
-go
+GO
 CREATE TABLE Store (
-    store_ID int not null primary key,
+    StoreID int not null primary key,
     Name varchar(255),
-    phone varchar(10),
-	email varchar (50),
-	addressID int,
-    manager varchar (255)
+    Phone varchar(10),
+	Email varchar (50),
+	AddressID int,
+    Manager varchar (255)
 );
 
 /*Barista
@@ -76,13 +76,13 @@ lastName char
 badge char
 store_ID FK-char*/
 DROP TABLE Barista;
-go
+GO
 CREATE TABLE Barista (
-	barista_ID int not null primary key,
-	firstName varchar(255),
-	lastName varchar(255),
-	badge varchar(50),
-	store_ID int not null
+	BaristaID int not null primary key,
+	FirstName varchar(255),
+	LastName varchar(255),
+	Badge varchar(50),
+	StoreID int not null
 );
 
 /*Addresses
@@ -92,21 +92,21 @@ city char
 state char
 zip char*/
 DROP TABLE Addresses;
-go
+GO
 CREATE TABLE Addresses (
-	address_ID int not null primary key,
-	address varchar(255),
-	city varchar(255)
+	AddressID int not null primary key,
+	Address varchar(255),
+	City varchar(255)
 );
 
 /*Rewards_account
 ID FK-char
 balance Int*/
 DROP TABLE Rewards_account;
-go
+GO
 CREATE TABLE Rewards_account (
-	rewards_account_ID int not null,
-	balance int
+	RewardsAccountID int not null,
+	Balance int
 );
 
 /*Customer_favorites
@@ -115,12 +115,12 @@ product_ID FK-char
 cream boolean
 sugar boolean*/
 DROP TABLE Customer_favorites;
-go
+GO
 CREATE TABLE Customer_favorites (
-	person_ID int not null,
-	product_ID int,
-	cream bit,
-	sugar bit
+	PersonID int not null,
+	ProductID int,
+	Cream bit,
+	Sugar bit
 
 );
 
@@ -133,15 +133,15 @@ register INT
 clerk FK-char
 payType char*/
 DROP TABLE Transaction_master;
-go
+GO
 CREATE TABLE Transaction_master (
-	transaction_ID int not null,
-	person_ID int,
-	dateTime datetime,
-	store_ID int,
-	register int,
-	clerk varchar(255),
-	payType varchar(30)
+	TransactionID int not null,
+	PersonID int,
+	DateTime datetime,
+	StoreID int,
+	Register int,
+	Clerk varchar(255),
+	PayType varchar(30)
 );
 
 /*Transaction_product
@@ -150,12 +150,12 @@ product_ID FK-char
 quantity Int
 price amount*/
 DROP TABLE Transaction_product;
-go
+GO
 CREATE TABLE Transaction_product (
-	transaction_ID int,
-	product_ID int,
-	quantity int,
-	price money
+	TransactionID int,
+	ProductID int,
+	Quantity int,
+	Price money
 );
 
 /*Transaction_reward
@@ -163,11 +163,11 @@ trans_ID PK-cha
 person_ID FK-char
 reward Int*/
 DROP TABLE Transaction_reward;
-go
+GO
 CREATE TABLE Transaction_reward (
-	transaction_ID int,
-	person_ID int,
-	reward int
+	TransactionID int,
+	PersonID int,
+	Reward int
 );
 
 /*Product_supplier
@@ -176,12 +176,12 @@ Supp_ID FK-char
 cost amount
 days Int*/
 DROP TABLE Product_supplier;
-go
+GO
 CREATE TABLE Product_supplier (
-	product_ID int not null,
-	supplier_ID int,
-	cost money,
-	days int
+	ProductID int not null,
+	SupplierID int,
+	Cost money,
+	Days int
 );
 
 /*Supplier
@@ -191,10 +191,10 @@ phone char
 email char
 */
 DROP TABLE Supplier;
-go
+GO
 CREATE TABLE Supplier (
-	supplier_ID int not null,
-	address_ID int,
-	phone varchar(10),
-	email varchar(30)
+	SupplierID int not null,
+	AddressID int,
+	Phone varchar(10),
+	Email varchar(30)
 );

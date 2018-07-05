@@ -1,3 +1,4 @@
+--CREATE DATABASE love_you_a_latte; 
 use love_you_a_latte;
 
 /*
