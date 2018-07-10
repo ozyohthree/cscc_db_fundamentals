@@ -12,24 +12,39 @@ CustomerProductPreferences (customerid, productid, preferenceid) - with 3 foreig
 Turn in a script (.sql) file that contains all the commands for this lab
 
 */
-
+use love_you_a_latte;
 DROP TABLE Preferences;
 GO
-CREATE TABLE Person (
-    PreferenceID int NOT NULL,
-    Name varchar(255),
-    Description varchar(255)
+CREATE TABLE Preferences (
+    Preference_ID	int	NOT NULL,
+    Name			varchar(255),
+    Description		varchar(255)
 );
 
 GO
 ALTER TABLE Preferences
-ADD CONSTRAINT PK_Preferences_PreferencesID PRIMARY KEY (PreferencesID);
+ADD CONSTRAINT PK_Preferences_PreferenceID PRIMARY KEY (Preference_ID);
 
 DROP TABLE CustomerProductPreferences;
 GO
 CREATE TABLE CustomerProductPreferences (
-    CustomerID int NOT NULL,
-    ProductID int NOT NULL,
-    PreferenceID int NOT NULL
+    Person_ID		int NOT NULL,
+    Product_ID		int NOT NULL,
+    Preference_ID	int NOT NULL
 );
 
+GO
+ALTER TABLE CustomerProductPreferences
+ADD CONSTRAINT PK_CustomerProductPreferences PRIMARY KEY (Person_ID,Product_ID,Preference_ID);
+GO
+ALTER TABLE CustomerProductPreferences
+ADD CONSTRAINT FK_CustomerProductPreferences_Customer_ID FOREIGN KEY (Person_ID)
+REFERENCES Person(Person_ID);
+GO
+ALTER TABLE CustomerProductPreferences
+ADD CONSTRAINT FK_CustomerProductPreferences_Product_ID FOREIGN KEY (Product_ID)
+REFERENCES Product(Product_ID);
+GO
+ALTER TABLE CustomerProductPreferences
+ADD CONSTRAINT FK_CustomerProductPreferences_Preference_ID FOREIGN KEY (Preference_ID)
+REFERENCES Preferences(Preference_ID);

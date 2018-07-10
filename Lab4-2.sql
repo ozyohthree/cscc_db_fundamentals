@@ -41,8 +41,8 @@ uomeasure Int*/
 DROP TABLE Product;
 GO
 CREATE TABLE Product (
-    ProductID int not null primary key,
-    CategoryID int not null,
+    Product_ID int not null primary key,
+    Category_ID int not null,
     Name varchar(255),
     Description varchar(50),
 	Price varchar (30),
@@ -135,8 +135,8 @@ payType char*/
 DROP TABLE Transaction_master;
 GO
 CREATE TABLE Transaction_master (
-	TransactionID int not null,
-	PersonID int,
+	Transaction_ID int not null,
+	Person_ID int,
 	DateTime datetime,
 	StoreID int,
 	Register int,
