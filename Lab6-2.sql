@@ -99,14 +99,17 @@ INSERT INTO Customer_Favorites(Person_ID,Product_ID,Cream,Sugar)
 SELECT * 
 	FROM Person, Addresses
 	WHERE Person.Address_ID=Addresses.Address_ID;
+GO
 
 SELECT *
 	FROM Barista,Store,Addresses
 	WHERE Barista.Store_ID=Store.Store_ID
 		AND	Store.Address_ID=Addresses.Address_ID;
+GO
 
 SELECT Person.Name, Product.Name, Customer_Favorites.Cream, Customer_Favorites.Sugar
 	FROM Person,Product,Customer_Favorites
 	WHERE Person.Person_ID=Customer_Favorites.Person_ID
 		AND Customer_Favorites.Product_ID=Product.Product_ID
+GO
 
