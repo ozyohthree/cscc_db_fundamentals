@@ -20,8 +20,9 @@ SELECT Person.Name as 'Customer Name'
 	WHERE Customer_Favorites.Person_ID IS NULL
 GO
 
-/* ALTERNATIVE QUERY */
+/* ALTERNATIVE */
 /*
+CREATE VIEW Customers_Without_Favorites AS
 SELECT Person.Name as 'Customer Name'
 	FROM Person
 	WHERE Person.Person_ID NOT IN (SELECT Customer_Favorites.Person_ID FROM Customer_Favorites)
